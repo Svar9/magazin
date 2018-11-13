@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  color: inherit;
+}
+
+a {
+  @include inc-click-area(3px);
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: $transition-normal;
+  &:hover{
+    transition: $transition-fast;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a,
+button,
+label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: $font-family-default;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  margin: 0;
+}
+
+select::-ms-expand {display:none;}
+
+input::-ms-clear {display:none;}
+
+button,
+select,
+label {
+  cursor: pointer;
+}
+
+// Автозаполнение
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: none;
+  transition: background-color 999s, color 999s;
+}
+
+//
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+}

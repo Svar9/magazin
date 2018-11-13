@@ -1,0 +1,29 @@
+@mixin inc-click-area($px: 10px) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: -$px;
+    bottom: -$px;
+    left: -$px;
+    right: -$px;
+  }
+}
+
+@mixin w-from($screen) {
+  @media (min-width: $screen) {
+    @content;
+  }
+}
+
+@mixin w-to($screen) {
+  @media (max-width: $screen - 1px) {
+    @content;
+  }
+}
+
+@mixin w-range($screen1, $screen2) {
+  @media (min-width: $screen1) and (max-width: $screen2 - 1px){
+    @content;
+  }
+}

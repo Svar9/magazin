@@ -1,0 +1,563 @@
+@import "vars.scss";
+@import "fonts.scss";
+@import "mixins.scss";
+@import "reset.scss";
+
+
+body {
+  animation: bodyIn .35s ease-out;
+  background: white;
+  font-family: $font-family-default;
+  font-size: 14px;
+  color: black;
+  min-width: 320px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+%wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 24px;
+
+  @include  w-from($screen-md) {padding: 0 30px;}
+  @include  w-from($screen-lg) {padding: 0;}
+}
+
+.wrapper-1200 {
+  @extend  %wrapper;
+  max-width: 1200px;
+}
+
+.wrapper-1024 {
+  @extend  %wrapper;
+  max-width: 1024px;
+}
+
+%button {
+  font-family: $font-family-mono;
+  font-size: 18px;
+  font-weight: bold;
+
+  width: 100%;
+  display: block;
+  max-width: 480px;
+  transition: $transition-normal;
+
+  background: gray;
+  padding: 17px 0 19px;
+  &:active,
+  &:hover{
+    transition: $transition-fast ease-out;
+  }
+}
+
+.s-item-button {
+  @extend %button;
+  background: $color-accent-1;
+  color: white;
+  
+  @media (hover: hover) {
+    &:hover {
+      color: #ff7f96;
+      background: #ffebef;
+    }
+  }
+
+  &:disabled {
+    background: $color-accent-2;
+    color: white;
+  }
+
+  &:active {
+
+  }
+}
+
+.s-header{
+  margin-bottom: 48px;
+  padding-top: 42px;
+  position: relative;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__phone {
+    font-family: $font-family-mono;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: right;
+  }
+
+  @include w-to($screen-md){
+    padding-top: 32px;
+
+    .s-header-nav,
+    .s-header__phone {display: none;}
+  }
+}
+
+.s-logo {
+  text-decoration: none;
+  img {max-width: 160px}
+}
+
+.s-header-nav {
+  font-family: $font-family-mono;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  @include w-to($screen-md) {
+    font-size: 18px;
+  }
+
+  a {
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &__item {
+    // на телефоне они в колонку
+    @include  w-to($screen-md){
+      &:not(:last-child) {margin-bottom: 40px;}
+    }
+    @include  w-from($screen-md){
+      &:not(:last-child) {margin-right: 40px;}
+    }
+    &.mod-dropdown {
+      position: relative;
+      &:hover {
+        .s-header-nav__dropdown {
+          transition: $transition-fast ease-out;
+          opacity: 1;
+          pointer-events: initial;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 40%;
+        width: 8px;
+        height: 6px;
+        background: url("../img/angle-down.svg") center no-repeat;
+        opacity: .5;
+      }
+    }
+  }
+
+  &__dropdown{
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition-normal;
+
+    padding: 20px 24px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 11;
+    width: 180px;
+    box-sizing: border-box;
+    transformform: translateX(-50%);
+    box-shadow: 1px 1px 5px rgba(black, .05);
+
+    font-size: 14px;
+    a {
+      display: block;
+      &:not(:last-child){margin-bottom: 16px}
+    }
+  }
+}
+
+.s-main{
+  margin-bottom: 24px;
+}
+
+.s-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $color-gray-light;
+  min-height: 140px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+
+  @include  w-to($screen-lg) {
+    flex-direction: column;
+    align-items: flex-start;
+    &__section {
+      &:not(:last-child){margin-bottom: 24px}
+    }
+  }
+
+  //для планшета
+  @include w-range($screen-md, $screen-lg){
+    margin: 0 -5px;
+    align-items: normal;
+    &__section {
+      &:not(:last-child){padding-right: 100px}
+    }
+  }
+
+  &__section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-grow: 1;
+    &:first-child {
+      justify-content: flex-start;
+
+      @include w-to($screen-md) {
+        flex-direction: column;
+        margin-bottom: 32px;
+        .s-footer__copy {margin-bottom: 24px}
+      }
+    }
+    &:last-child {justify-content: flex-end;}
+  }
+
+  &__copy{
+    font-family: $font-family-caption;
+    font-size: 14px;
+    margin-right: 88px;
+  }
+}
+
+.s-footer-nav{
+  @extend .s-header-nav;
+  font-size: 16px;
+
+  a{
+    &:not(:last-child){margin-right: 40px}
+  }
+}
+
+.s-item{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 auto;
+
+  @include w-to($screen-md) {
+    flex-direction: column;
+    &__section {
+      width: 100%;
+    }
+  }
+  @include w-from($screen-lg) {
+    max-width: 1024px;
+  }
+
+  &__section {
+    width: 100%;
+    flex-grow: 1;
+
+    //слайдер
+    &:nth-child(1) {
+      @include w-to($screen-md) {
+        margin-bottom: 40px;
+      }
+      @include w-from($screen-md) {
+        max-width: 342px;
+        margin-right: 24px;
+      }
+      @include w-from($screen-lg) {
+        max-width:  546px;
+        margin-right: 102px;
+      }
+    }
+    // описание
+    &:nth-child(2) {
+      @include w-from($screen-md) {max-width: 352px;}
+      @include w-from($screen-lg) {max-width: 375px;}
+    }
+  }
+
+  &__title {
+    font-family: $font-family-mono;
+    margin-bottom: 26px;
+  }
+
+  &__attribute {
+    font-family: $font-family-caption;
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 26px;
+    p {
+      &:not(:last-child){margin-bottom: 11px}
+    }
+  }
+
+  &__price {
+    font-family: $font-family-mono;
+    font-size: 28px;
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  &__pricecurrency {
+    display: none;
+  }
+
+  &__property {
+    margin-bottom: 26px;
+  }
+
+  &__button {
+    margin-bottom: 40px;
+  }
+}
+
+.s-subscribe {
+
+  &[data-complete="true"] {
+    .s-subscribe__uncomplete {display: none;}
+    .s-subscribe__complete {
+      animation: popIn $transition-normal ease-out;
+      display: block;
+    }
+  }
+
+  &__uncomplete {
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .s-subscribe__text {
+        margin-right: 24px;
+        min-width: 160px;
+      }
+      .s-subscribe__input {margin-right: 8px;}
+
+      @include w-to($screen-md) {
+        flex-wrap: wrap;
+        .s-subscribe__text:first-child{
+          width: 100%;
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+
+  &__complete{
+    display: none;
+    .s-subscribe__text {
+      color: $color-success;
+    }
+  }
+
+  &__submit {
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &__text {
+    font-family: $font-family-caption;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.s-item-slider {
+  &__content {
+    overflow: hidden;
+    margin-bottom: 50px;
+
+    @include w-from($screen-md) {
+      height: 304px;
+    }
+    @include w-from($screen-lg) {
+      height: 486px;
+      margin-bottom: 60px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    margin: 0 auto;
+    button {
+      @include inc-click-area(10px);
+      &:hover {opacity: .5}
+      &:active {transform: scale(.9);}
+      &:slick-disabled {
+        opacity: .25;
+        cursor: initial;
+        transform: none;
+      }
+      img {max-width: 8px;}
+    }
+  }
+}
+
+.s-tabs {
+  min-height: 240px;
+
+  &__labels {
+    font-family: $font-family-mono;
+    font-size: 14px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-bottom: 1px solid $color-gray-light;
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    @include inc-click-area(8px);
+    cursor: pointer;
+    color: rgba(black, .5);
+    &:not(:last-child){margin-right: 32px}
+    &[data-active="true"] {
+      color: black;
+      span {border-bottom: 1px solid black}
+    }
+
+    span {
+      display: inline-block;
+      padding-bottom: 11px;
+      //способ сделать чёрную полоску поверх серой
+      position: relative;
+      bottom: -1px;
+      //чтобы не мешало отслеживать JS
+      pointer-events: none;
+    }
+  }
+
+  &__tab {
+    display: none;
+    &[data-active="true"]{
+      display: block;
+    }
+  }
+}
+
+.s-item-property {
+  &__list {
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      &:not(:last-child){margin-bottom: 16px}
+    }
+  }
+
+  &__title{
+    display: block;
+    color: rgba(black, .5);
+    font-family: $font-family-mono;
+    font-size: 12px;
+    line-height: 24px;
+    min-width: 100px;
+  }
+
+  &__value{
+    flex-grow: 1;
+  }
+}
+
+.s-fullproperty {
+  &__list {
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      &:not(:last-child){margin-bottom: 16px}
+    }
+  }
+
+  &__title{
+    display: block;
+    color: rgba(black, .5);
+    font-family: $font-family-mono;
+    font-size: 12px;
+    line-height: 24px;
+    min-width: 100px;
+  }
+
+  &__value{
+    flex-grow: 1;
+  }
+}
+
+.s-item-fulldescription {
+  overflow: hidden;
+  position: relative;
+  min-height: 240px;
+
+  &[data-opened="true"] {
+    .s-item-fulldescription__content {max-height: none;}
+    .s-item-fulldescription__more {display: none;}
+  }
+
+  &__content {
+    font-family: $font-family-caption;
+    font-size: 16px;
+    line-height: 30px;
+    max-height: 140px;
+    overflow: hidden;
+    p {
+      &:not(:last-child){margin-bottom: 11px}
+    }
+  }
+
+  &__more {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 90px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), white);
+    font-family: $font-family-mono;
+    font-size: 12px;
+    line-height: 30px;
+    padding-top: 42px;
+    box-sizing: border-box;
+    &:hover {
+      opacity: .5;
+    }
+  }
+}
+
+.s-colors {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__item {
+    cursor: pointer;
+    &:not(:last-child){margin-right: 8px}
+
+    input[type="radio"]:checked +img {
+      border: 6px solid #ffffff;
+      outline: 2px solid black;
+      outline-offset: -2px;
+    }
+
+    img {
+      max-width: 32px;
+      max-height: 32px;
+      border: 1px solid #979797;
+      box-sizing: border-box;
+      transition: none;
+    }
+  }
+}
+
+
+

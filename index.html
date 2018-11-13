@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Мыло</title>
+    <link rel="stylesheet" type="text/css" href="src/css/slick.css"/>
+    <link rel="stylesheet" href="src/css/main.css" type="text/css"/>
+    <link rel="shortcut icon" href="src/favicon/favicon.png" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="s-width-1200">
+    <header class="js-header s-header">
+        <div class="s-header__content">
+            <div class="s-header__logo">
+                <a href="index.html" class="s-logo">
+                    <img src="src/img/logo.svg" alt="Soap">
+                </a>
+            </div>
+
+            <div class="s-header-nav">
+                <nav class="s-header-nav">
+                    <div class="s-header-nav__item">
+                        <a href="#Мыло">Мыло</a>
+                    </div>
+                    <div class="s-header-nav__item mod-dropdown">
+                        <a href="#Рубашки">Рубашки</a>
+                        <div class="s-header-nav__dropdown">
+                            <a href="#Длинныйрукав">Длинный рукав</a>
+                            <a href="#Короткийрукав">Короткий рукав</a>
+                        </div>
+                    </div>
+                    <div class="s-header-nav__item">
+                        <a href="#Жир">Жир</a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="s-header__phone">
+                <a href="tel:88009903443">8 800 990-34-43</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="s-main">
+        <!--Указывается схема Product.-->
+        <div class="s-item" itemscope itemtype="http://schema.org/Product">
+            <div class="s-item__section ">
+                <div class="s-item-slider">
+                    <div class="js-item-slider s-item-slider__content">
+                        <figure class="s-item-slider__img">
+                            <!--В поле image указывается ссылка на картинку товара.-->
+                            <img class="js-current-color-1" src="src/img/item-2-1.png" alt="Изображение мыла" itemprop="image">
+                        </figure>
+                        <figure class="s-item-slider__img">
+                            <img class="js-current-color-2" src="src/img/item-2-2.png" alt="Изображение мыла">
+                        </figure>
+                    </div>
+                    <div class="s-item-slider__arrows">
+                        <button class="js-item-slider-arrows-prev"><img src="src/img/arrow-left.svg" alt="&larr;"></button>
+                        <button class="js-item-slider-arrows-next"><img src="src/img/arrow-right.svg" alt="&rarr;"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-item__section">
+                <div class="s-item__description">
+                    <!--В поле name указывается наименование товара.-->
+                    <h1 class="s-item__title" itemprop="name">Мыло FIGHT CLUB</h1>
+                    <!--В поле description дается описание товара.-->
+                    <p class="s-item__attribute" itemprop="description">Мыло розовое, душистое. Отличное качество (секретный ингридиент).</p>
+                    <!--Указывается схема Offer.-->
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <!--В поле price указывается цена товара.-->
+                        <p class="s-item__price" itemprop="price">
+                            <span>13 890 Р</span>
+                        </p>
+                        <!--В поле priceCurrency указывается валюта.-->
+                        <span class="s-item__pricecurrency" itemprop="priceCurrency">RUB</span>
+                    </div>
+
+                    <div class="s-item__property">
+                        <ul class="s-item-property__list">
+                            <li>
+                                <span class="s-item-property__title">Цвет</span>
+                                <div class="s-item-property__value">
+                                    <div class="s-colors">
+                                        <figure class="s-colors__item">
+                                            <label>
+                                                <input type="radio" name="color" value="color-1" data-color="2" checked>
+                                                <img src="src/img/color-1.svg" alt="Красный">
+                                            </label>
+                                        </figure>
+                                        <figure class="s-colors__item">
+                                            <label>
+                                                <input type="radio" name="color" value="color-2" data-color="1">
+                                                <img src="src/img/color-2.svg" alt="Розовый">
+                                            </label>
+                                        </figure>
+                                        <figure class="s-colors__item">
+                                            <label>
+                                                <input type="radio" name="color" value="color-3" data-color="3">
+                                                <img src="src/img/color-3.svg" alt="Зеленый">
+                                            </label>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </li>
+                           <!-- <li>
+                                <span class="s-item-property__title">Размер</span>
+                                <div class="s-item-property__value">33</div>
+                            </li>-->
+                        </ul>
+                    </div>
+
+                    <div class="s-item__button">
+                        <button class="js-button s-item-button">Добавить в корзину</button>
+                    </div>
+
+                    <div class="s-item__tabs">
+                        <div class="s-tabs">
+                            <div class="s-tabs__labels">
+                                <div class="js-tabs-label s-tabs__label" data-active="true" data-tab="description">
+                                    <span>Описание</span>
+                                </div>
+                                <div class="js-tabs-label s-tabs__label" data-active="false" data-tab="property">
+                                    <span>Характеристики</span>
+                                </div>
+                            </div>
+                            <div class="s-tabs__tabs">
+                                <div class="js-tabs-tab s-tabs__tab" data-tab="description" data-active="true">
+                                    <div class="js-folded s-item-fulldescription" data-tab="property" data-active="false" data-opened="false">
+                                        <div class="s-item-fulldescription__content">
+                                            <p>
+                                                Масло Макадимии смягчает, увлажняет, обладает антиоксидантными, антибактериальными,
+                                                восстанавливающими свойствами, ускоряет заживление, снимает болевые ощущения в
+                                                суставах. Натуральный ментол охладит и снимет усталость после долгой тренировки.
+                                                Подойдет для всех типов кожи.
+                                            </p>
+                                        </div>
+                                        <div class="js-folded-opener s-item-fulldescription__more">
+                                            Показать больше &darr;
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="js-tabs-tab s-tabs__tab" data-tab="property" data-active="false">
+                                    <div class="s-fullproperty">
+                                        <ul class="s-fullproperty__list">
+                                            <li>
+                                                <span class="s-fullproperty__title">Артикул</span>
+                                                <div class="s-fullproperty__value">H7S3N-9301</div>
+                                            </li>
+                                            <li>
+                                                <span class="s-fullproperty__title">Страна</span>
+                                                <div class="s-fullproperty__value">Индонезия</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="s-footer">
+        <div class="s-footer__section">
+            <span class="s-footer__copy">© ООО «Соуп»</span>
+            <nav class="s-footer-nav">
+                <a href="#Мыло">Мыло</a>
+                <a href="#Рубашки">Рубашки</a>
+                <a href="#Жир">Жир</a>
+            </nav>
+        </div>
+        <div class="s-footer__section">
+            <div class="js-subscribe s-subscribe" data-complete="false">
+                <div class="js-subscribe__uncomplete s-subscribe__uncomplete">
+                    <form class="js-subscribe-form">
+                        <span class="s-subscribe__text">Подписка на рассылку</span>
+                        <input id="ajaxinputemail" class="s-subscribe__input" type="email" placeholder="Ваш e-mail" name="email">
+                        <button id="ajaxsubscribe" class="s-subscribe__submit" type="submit"> Отправить</button>
+                    </form>
+                </div>
+                <div class="js-subscribe__complete s-subscribe__complete">
+                    <span class="s-subscribe__text">Подписка оформлена!</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="src/scripts/jquery-3.3.1.min.js"></script>
+<script src="src/scripts/slick.min.js"></script>
+
+<script defer src="src/scripts/main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
